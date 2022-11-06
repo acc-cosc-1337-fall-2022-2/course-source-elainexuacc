@@ -29,6 +29,7 @@ int main()
 	
 		while (ttt_game.game_over() == false);
 		ttt_game.display_board();
+		cout << "The winner is " << ttt_game.get_winner() << "\n";
 		cout << "Do you want to restart the game? Enter 'Y' or 'N'. ";
 		string response;
 		cin >> response;

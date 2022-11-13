@@ -1,6 +1,29 @@
 //cpp
 #include "tic_tac_toe.h"
 
+ostream& operator << (ostream& out, const TicTacToe& game) {
+    for (int i = 0; i < game.pegs.size(); i++){
+            if (i % 3 == 0) {
+                out << "|";
+            }
+            out << game.pegs[i] << "|";
+            if ((i + 1) % 3 == 0) {
+                out << "\n";
+            }
+        }
+    return out;
+}
+
+istream& operator>>(istream& in, TicTacToe& game) {
+    int position;
+
+    cout << "Player " << game.get_player() << ", enter a number in 1-9 for your position";
+    in >> position;
+    game.mark_board(position);
+
+    return in;
+}
+
 bool TicTacToe::game_over()
 {
     if (check_row_win() or check_column_win() or check_diagonal_win()) {
@@ -34,6 +57,7 @@ string TicTacToe::get_player() const {
     return player;
 }
 
+/*
 void TicTacToe::display_board() const{
     int row_len = 3;
     for (int i = 0; i < pegs.size(); i++){
@@ -46,6 +70,7 @@ void TicTacToe::display_board() const{
         }
     }
 }
+*/
 
 string TicTacToe::get_winner() {
     return winner;

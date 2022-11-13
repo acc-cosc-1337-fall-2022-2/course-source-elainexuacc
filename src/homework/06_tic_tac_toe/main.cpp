@@ -1,4 +1,5 @@
 #include "tic_tac_toe.h"
+#include "tic_tac_toe_manager.h"
 #include <string>
 
 using namespace::std;
@@ -6,6 +7,7 @@ using namespace::std;
 int main() 
 {
 	TicTacToe ttt_game;
+	TicTacToeManager ttt_manager;
 
 	cout << "Do you want to start a new game? Enter 'Y' or 'N'. ";
 	string response;
@@ -28,8 +30,19 @@ int main()
 		}
 	
 		while (ttt_game.game_over() == false);
-		ttt_game.display_board();
+		//ttt_game.display_board();
+		cout << ttt_game;
 		cout << "The winner is " << ttt_game.get_winner() << "\n";
+
+		ttt_manager.save_game(ttt_game);
+
+		int o, x, t;
+		ttt_manager.get_winner_total(o, x, t);
+		cout << "O wins " << o << "times \n";
+		cout << "X wins " << x << "times \n";
+		cout << "Ties " << t << "times \n";
+	}
+		
 		cout << "Do you want to restart the game? Enter 'Y' or 'N'. ";
 		string response;
 		cin >> response;

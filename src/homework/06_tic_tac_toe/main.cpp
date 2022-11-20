@@ -1,12 +1,15 @@
 #include "tic_tac_toe.h"
 #include "tic_tac_toe_manager.h"
+#include "tic_tac_toe_3.h"
+#include "tic_tac_toe_4.h"
 #include <string>
 
 using namespace::std;
 
+
 int main() 
 {
-	TicTacToe ttt_game;
+	unique_ptr<TicTacToe> ttt_game;
 	TicTacToeManager ttt_manager;
 
 	cout << "Do you want to start a new game? Enter 'Y' or 'N'. ";
@@ -14,6 +17,19 @@ int main()
 	cin >> response;
 
 	while (response == "Y"){
+		do {
+			cout << "Enter 3 for 3*3 Tic Tac Toe game or 4 for 4*4 Tic Tac Toe game.";
+			int size;
+			cin >> size:
+		}
+
+		if(size == 3) {
+			ttt_game = make_unique<TicTacToe3>();
+		}
+		else {
+			ttt_game = make_unique<TicTacToe4>();
+		}
+		
 		string first_player;
 		do {
 			cout << "Please enter X or O.";

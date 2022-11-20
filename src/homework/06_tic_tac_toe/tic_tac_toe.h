@@ -20,17 +20,22 @@ class TicTacToe{
         string get_player() const;
         //void display_board() const;
         string get_winner();
+        TicTacToe(int size):pegs(size*size," "){}；
+    
+    protected:
+        vector<string> pegs;
+        virtual bool check_column_win();
+        virtual bool check_row_win();
+        virtual bool check_diagonal_win();
+
         
     private:
         string player;
-        vector<string> pegs = {" ", " ", " ", " ", " ", " ", " ", " ", " "};
         string winner;
-
-        bool check_column_win();
-        bool check_row_win();
-        bool check_diagonal_win();
         void set_winner();
         void set_next_player();
         bool check_board_full();
         void clear_board();
 };
+
+#endif

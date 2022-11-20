@@ -1,6 +1,12 @@
 //cpp
 #include "tic_tac_toe.h"
 
+using namespace std;
+
+TicTacToe::TicTacToe(int size): pegs(size*size, " ")
+{
+}
+
 ostream& operator << (ostream& out, const TicTacToe& game) {
     for (int i = 0; i < game.pegs.size(); i++){
             if (i % 3 == 0) {
@@ -78,6 +84,7 @@ string TicTacToe::get_winner() {
 
 //private functions
 bool TicTacToe::check_column_win(){
+    /*
     if(pegs[0] == "O" && pegs[3] == "O" && pegs[6] == "O"){
         return true;
     }
@@ -96,11 +103,13 @@ bool TicTacToe::check_column_win(){
     if(pegs[2] == "X" && pegs[5] == "X" && pegs[8] == "X"){
         return true;
     }
+    */
 
     return false;
 }
 
 bool TicTacToe::check_row_win(){
+    /*
     if(pegs[0] == "O" && pegs[1] == "O" && pegs[2] == "O"){
         return true;
     }
@@ -119,11 +128,12 @@ bool TicTacToe::check_row_win(){
     if(pegs[6] == "X" && pegs[7] == "X" && pegs[8] == "X"){
         return true;
     }
-    
+    */
     return false;
 }
 
 bool TicTacToe::check_diagonal_win(){
+    /*
     if(pegs[0] == "O" && pegs[4] == "O" && pegs[8] == "O"){
         return true;
     }
@@ -136,7 +146,7 @@ bool TicTacToe::check_diagonal_win(){
     if(pegs[6] == "X" && pegs[4] == "X" && pegs[2] == "X"){
         return true;
     }
-
+*/
     return false;
 }
 
